@@ -13,7 +13,7 @@ export class PokelistComponent implements OnInit {
   constructor(private pokeapiService: PokeapiService) { }
 
   private retrievePokemonById(id: number) {
-    this.pokeapiService.getPokemonById(id).subscribe({
+    this.pokeapiService.getPokemonByIdOrName(id).subscribe({
       next: (pokemon: Pokemon) => {
         this.pokemons.push(pokemon)
       },

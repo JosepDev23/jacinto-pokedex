@@ -8,6 +8,8 @@ import { PokecardComponent } from './components/pokecard/pokecard.component';
 import { PokelistComponent } from './components/pokelist/pokelist.component';
 import { PokeapiService } from './services/pokeapi/pokeapi.service';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { PokesearchComponent } from './pokesearch/pokesearch.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +17,14 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     AppComponent,
     PokecardComponent,
     PokelistComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    PokesearchComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [PokeapiService],
