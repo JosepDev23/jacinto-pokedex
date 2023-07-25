@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PokecardComponent } from './pokecard/pokecard.component';
 import { PokelistComponent } from './pokelist/pokelist.component';
 import { PokeapiService } from './pokeapi/pokeapi.service';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PokecardComponent,
-    PokelistComponent
+    PokelistComponent,
+    CapitalizePipe
   ],
   imports: [
     HttpClientModule,
