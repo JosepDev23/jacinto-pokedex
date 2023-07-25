@@ -24,7 +24,7 @@ export class PokesearchComponent implements OnInit {
             this.pokeapiService.selectedPokemon = pokemon
           },
           error: () => {
-            this.pokeapiService.selectedPokemon = { name: 'not found', sprites: { front_default: '' } }
+            this.pokeapiService.selectedPokemon = { id: 0, name: 'not found', sprites: { front_default: '' }, stats: [], types: [] }
           }
         })
       )
