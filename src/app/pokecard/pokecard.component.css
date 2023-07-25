@@ -1,0 +1,17 @@
+.card_wrapper {
+  width: 20em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  background-color: gainsboro;
+}
+
+.card_wrapper:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 0px;
+}
+
+img {
+  width: 100%;
+}
