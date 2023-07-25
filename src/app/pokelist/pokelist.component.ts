@@ -12,16 +12,28 @@ export class PokelistComponent implements OnInit {
 
   constructor(private pokeapiService: PokeapiService) { }
 
+  private retrievePokemonById(id: number) {
+    this.pokeapiService.getPokemonById(id).subscribe({
+      next: (pokemon: Pokemon) => {
+        this.pokemons.push(pokemon)
+      },
+      error: (error) => {
+        console.error('Error get pokemon', error)
+      }
+    })
+  }
+
   ngOnInit(): void {
     for (let i = 1; i <= 20; i++) {
-      this.pokeapiService.getPokemonById(i).subscribe({
-        next: (pokemon: Pokemon) => {
-          this.pokemons.push(pokemon)
-        },
-        error: (error) => {
-          console.error('Error get pokemon', error)
-        }
-      })
+      this.retrievePokemonById(i)
+    }
+  }
+
+  loadMorePokemon(): void {
+    console.log('jacinto')
+    const pokemonsSize = this.pokemons.length +1
+    for (let i = pokemonsSize; i < pokemonsSize + 20; i++) {
+      this.retrievePokemonById(i)
     }
   }
 }
