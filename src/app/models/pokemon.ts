@@ -1,3 +1,5 @@
+import { StatType } from "./statType"
+
 export default interface Pokemon {
   id: number
   name: string
@@ -6,7 +8,7 @@ export default interface Pokemon {
   }
   stats: {
     base_stat: number
-    stat: {name: string}
+    stat: { name: StatType }
   }[]
-  types: { type: {name: string} }[]
+  types: { type: { name: string } }[]
 }

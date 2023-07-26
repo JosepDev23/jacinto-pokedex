@@ -11,14 +11,16 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { PokesearchComponent } from './pokesearch/pokesearch.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokedetailsComponent } from './pokedetails/pokedetails.component';
+import { StatPipe } from './pipes/stats.pipe';
 
 
 @NgModule({
   declarations: [
+    CapitalizePipe,
+    StatPipe,
     AppComponent,
     PokecardComponent,
     PokelistComponent,
-    CapitalizePipe,
     PokesearchComponent,
     PokedetailsComponent
   ],

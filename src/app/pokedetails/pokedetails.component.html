@@ -9,7 +9,7 @@
   </div>
   <div class="stats_wrapper">
     <h3 *ngFor="let stat of pokeapiService.selectedPokemon.stats">
-      {{stat.stat.name}}: {{stat.base_stat}}
+      {{stat.stat.name | stat}}: {{stat.base_stat}}
     </h3>
   </div>
 </div>
