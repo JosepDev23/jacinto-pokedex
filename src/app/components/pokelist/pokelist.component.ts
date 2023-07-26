@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeapiService } from '../../services/pokeapi/pokeapi.service';
 import Pokemon from '../../models/pokemon';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-pokelist',
@@ -12,27 +13,25 @@ export class PokelistComponent implements OnInit {
 
   constructor(private pokeapiService: PokeapiService) { }
 
-  private retrievePokemonById(id: number) {
-    this.pokeapiService.getPokemonByIdOrName(id).subscribe({
-      next: (pokemon: Pokemon) => {
-        this.pokemons.push(pokemon)
-      },
-      error: (error) => {
-        console.error('Error get pokemon', error)
-      }
-    })
-  }
-
-  ngOnInit(): void {
-    for (let i = 1; i <= 20; i++) {
-      this.retrievePokemonById(i)
+  private async retrievePokemonById(id: number) {
+    try {
+      const pokemon = await firstValueFrom(this.pokeapiService.getPokemonByIdOrName(id))
+      this.pokemons.push(pokemon)
+    } catch (error) {
+      console.error('Error get pokemon', error)
     }
   }
 
-  loadMorePokemon(): void {
-    const pokemonsSize = this.pokemons.length +1
+  async ngOnInit() {
+    for (let i = 1; i <= 20; i++) {
+      await this.retrievePokemonById(i)
+    }
+  }
+
+  async loadMorePokemon() {
+    const pokemonsSize = this.pokemons.length + 1
     for (let i = pokemonsSize; i < pokemonsSize + 20; i++) {
-      this.retrievePokemonById(i)
+      await this.retrievePokemonById(i)
     }
   }
 }
