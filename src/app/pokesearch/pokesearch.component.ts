@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Pokemon from '../models/pokemon';
 import { PokeapiService } from '../services/pokeapi/pokeapi.service';
-import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
+import { debounceTime, tap } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -30,7 +30,5 @@ export class PokesearchComponent implements OnInit {
       )
     ).subscribe()
   }
-
-  searchText: string = ''
 
 }

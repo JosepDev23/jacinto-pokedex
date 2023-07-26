@@ -1,0 +1,15 @@
+<div class="details_wrapper" *ngIf="pokeapiService.selectedPokemon">
+  <img [src]="pokeapiService.selectedPokemon.sprites.front_default">
+  <div class="basic_description_wrapper">
+    <h3>#{{pokeapiService.selectedPokemon.id}}</h3>
+    <h1>{{pokeapiService.selectedPokemon.name | capitalize}}</h1>
+    <h3 *ngFor="let type of pokeapiService.selectedPokemon.types">
+      {{type.type.name}}
+    </h3>
+  </div>
+  <div class="stats_wrapper">
+    <h3 *ngFor="let stat of pokeapiService.selectedPokemon.stats">
+      {{stat.stat.name}}: {{stat.base_stat}}
+    </h3>
+  </div>
+</div>

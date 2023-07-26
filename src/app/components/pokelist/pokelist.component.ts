@@ -30,7 +30,6 @@ export class PokelistComponent implements OnInit {
   }
 
   loadMorePokemon(): void {
-    console.log('jacinto')
     const pokemonsSize = this.pokemons.length +1
     for (let i = pokemonsSize; i < pokemonsSize + 20; i++) {
       this.retrievePokemonById(i)
